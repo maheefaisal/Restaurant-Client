@@ -3,7 +3,7 @@ import "./Featured.css";
 const Featured = () => {
   return (
     <>
-      <div className="featured-item rounded-xl mb-6 pt-2 bg-fixed">
+      <div className="featured-item rounded-xl mt-12 mb-6 pt-2 bg-fixed">
         <SectionTitle
           heading=" Future Item "
           subHeading=" check it out"
