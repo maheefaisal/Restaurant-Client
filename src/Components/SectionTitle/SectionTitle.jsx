@@ -8,7 +8,7 @@ const SectionTitle = ({ heading, subHeading }) => {
         
           {subHeading}
         </h1>
-      </div>
+      </div>  
     </>
   );
 };
