@@ -1,7 +1,7 @@
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import '@smastrom/react-rating/style.css'
-
+import comma from './comma.svg'
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 // Import Swiper styles
@@ -37,10 +37,11 @@ const Testimonials = () => {
                         reviews.map(review => <SwiperSlide key={review.id} review={review}>
                             <div className='m-24 flex flex-col items-center'>
                                 <Rating
-                                    style={{ maxWidth: 380 }}
+                                    style={{ maxWidth: 280 }}
                                     value={review.rating}
                                     readOnly
                                 />
+                                <img src={comma} alt="" />
                                 <p className='text-center  py-8'>{review.details}</p>
                                 <h3 className="text-2x text-xl text-orange-500">{review.name}</h3>
                             </div>
