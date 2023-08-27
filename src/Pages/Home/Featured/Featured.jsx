@@ -3,7 +3,7 @@ import "./Featured.css";
 const Featured = () => {
   return (
     <>
-      <div className="featured-item rounded-xl mb-6 pt-2">
+      <div className="featured-item rounded-xl mb-6 pt-2 bg-fixed">
         <SectionTitle
           heading=" Future Item "
           subHeading=" check it out"
@@ -29,7 +29,7 @@ const Featured = () => {
               energy, maintain life, or stimulate growth.
               
             </p>
-            <button className="btn btn-outline text-white">Order Now</button>
+            <button className="btn btn-outline text-white border-0 border-b-4 ">Order Now</button>
           </div>
         </div>
       </div>
