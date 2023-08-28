@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
-import { key } from "localforage";
 import useMenu from "../../../hooks/useMenu";
 
 const PopularMenu = () => {
