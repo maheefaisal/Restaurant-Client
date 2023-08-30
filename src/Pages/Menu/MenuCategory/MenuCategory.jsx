@@ -6,7 +6,7 @@ import MenuItem from "../../Shared/MenuItem/MenuItem";
 
 const MenuCategory = ({ items, title, img }) => {
     return (
-        <div className="pt-6">
+        <div className="pt-6 ">
             {title && <Cover
                 img={img}
                 title={title}
@@ -18,7 +18,11 @@ const MenuCategory = ({ items, title, img }) => {
                 ))}
             </div>
             <Link to={`/order/${title}`} >
-                <button className="btn btn-outline text-white border-0 border-b-4 ">Order Now</button>
+                <div className="flex flex-col items-center mb-4 mt-4">
+                    <button className="btn btn-outline bg-slate-400 text-black border-0 border-b-4 ">Order Now</button>
+
+                </div>
+
             </Link>
         </div>
     );
