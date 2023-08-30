@@ -3,7 +3,7 @@ import Cover from "../../Shared/Cover/Cover";
 import 'react-tabs/style/react-tabs.css';
 import { useState } from "react";
 import useMenu from "../../../hooks/useMenu";
-import FoodCard from "../../../Components/FoodCard/FoodCard";
+
 import Ordertab from "../Ordertab/Ordertab";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -32,11 +32,11 @@ const Order = () => {
                 title="Order Food"></Cover>
             <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList>
-                    <Tab>Salad</Tab>
-                    <Tab>Pizza</Tab>
-                    <Tab>Soup</Tab>
-                    <Tab>Dessert</Tab>
-                    <Tab>Drinks</Tab>
+                    <Tab>salad</Tab>
+                    <Tab>pizza</Tab>
+                    <Tab>soup</Tab>
+                    <Tab>dessert</Tab>
+                    <Tab>drinks</Tab>
 
                 </TabList>
                 <TabPanel>

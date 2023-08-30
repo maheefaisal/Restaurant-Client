@@ -28,22 +28,22 @@ const Menu = () => {
             <MenuCategory items={offered}>  </MenuCategory>
             <MenuCategory
                 items={dessert}
-                title={"Deserts"}
+                title={"deserts"}
                 img={"https://i.ibb.co/Bq61ghm/dessert-bg.jpg"}
             ></MenuCategory>
             <MenuCategory
                 items={pizza}
-                title={"Pizza"}
+                title={"pizza"}
                 img={"https://i.ibb.co/bHXXr69/pizza-bg.jpg"}
             ></MenuCategory>
             <MenuCategory
                 items={salad}
-                title={"Salad"}
+                title={"salad"}
                 img={"https://i.ibb.co/bHXXr69/pizza-bg.jpg"}
             ></MenuCategory>
             <MenuCategory
                 items={soup}
-                title={"Soup"}
+                title={"soup"}
                 img={"https://i.ibb.co/bHXXr69/pizza-bg.jpg"}
             ></MenuCategory>
         </>

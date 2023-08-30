@@ -1,8 +1,8 @@
 
 
-// eslint-disable-next-line react/prop-types
+
 const FoodCard = ({ item }) => {
-    // eslint-disable-next-line react/prop-types, no-unused-vars
+    
     const { image, price, name, recipe } = item;
 
     return (
