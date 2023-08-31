@@ -1,10 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import {  useContext, useEffect, useRef, useState } from 'react';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/Authprovider';
 
 
 const Login = () => {
     const captchaRef = useRef(null)
-const [disabled,setDisabled]=useState(true);
+    const [disabled, setDisabled] = useState(true);
+    const { logIn } = useContext(AuthContext)
 
     useEffect(() => {
         loadCaptchaEnginge(6);
@@ -16,16 +20,24 @@ const [disabled,setDisabled]=useState(true);
         const email = form.email.value
         const password = form.password.value
         console.log(email, password)
+        logIn(email, password)
+            .then(result => {
+                const user = result.user
+                console.log(user)
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
 
 
     const handleValidateCaptcha = () => {
         const userCaptchaValue = captchaRef.current.value;
-        if(validateCaptcha(userCaptchaValue)==true) {
+        if (validateCaptcha(userCaptchaValue) == true) {
             setDisabled(false)
         }
-        else{
+        else {
             setDisabled(true)
         }
 
@@ -69,6 +81,7 @@ const [disabled,setDisabled]=useState(true);
                             <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" />
                         </div>
                     </form>
+                    <p> <small>New Here?  <Link to="/signup">SignUp</Link> </small></p>
                 </div>
             </div>
         </div>
