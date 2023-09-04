@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/Authprovider";
 import { FaShoppingCart } from 'react-icons/fa';
@@ -11,7 +11,7 @@ const Navbar = () => {
       .then(() => { })
       .catch(error => console.log(error))
   }
-
+  
   const navOptions = (
     <>
       <li>
