@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import useCart from "../../../hooks/useCart";
+// Icons
+import { FaBeer, FaTrashAlt } from 'react-icons/fa';
 
 
 const MyCart = () => {
@@ -12,14 +14,66 @@ const MyCart = () => {
             <Helmet>
                 <title>Resturant | Mycart</title>
             </Helmet>
-            <div className="uppercase">
-                <h2 className="text-3xl">
-                    Total Items: {cart.length}
+            <div className="uppercase font-bold flex justify-evenly h-[70px] items-center ">
+                <h2 className="text-xl">
+                    Total Items Only: {cart.length}
                 </h2>
-                <h2 className="text-3xl">
+                <h2 className="text-xl">
                     Total Price: ${total}
                 </h2>
-                <button className="btn btn-warning bt-sm px-[120px]">pay</button>
+                <button className="btn btn-warning bt-sm px-[20px]">pay</button>
+            </div>
+            <div className="overflow-x-auto rounded-lg">
+                <table className="table ">
+                    {/* head */}
+                    <thead className="bg-slate-300 text-black">
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>Delicious Food Image</th>
+                            <th>Delicious Food Name</th>
+                            <th>Delicious Food's Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            cart.map((item, index) => <tr
+                                key={item._id}
+
+                            >
+                                <td>
+                                    {index + 1}
+                                </td>
+                                <td>
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle w-12 h-12">
+                                            <img src={item.image} alt="Avatar Tailwind CSS Component" />
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    {item.name}<br />
+                                    <span className="badge badge-ghost badge-sm">Food made with love</span>
+                                </td>
+                                <td className="text-2xl text-end">${item.price}</td>
+                                <th>
+                                    <button className="btn btn-ghost btn-lg bg-red-500 text-white hover:bg-red-700 " >
+
+                                        <FaTrashAlt></FaTrashAlt>
+                                    </button>
+                                </th>
+                            </tr>
+                            )
+                        }
+
+
+
+                    </tbody>
+
+
+                </table>
             </div>
 
         </div>
