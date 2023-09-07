@@ -2,15 +2,45 @@ import { Helmet } from "react-helmet-async";
 import useCart from "../../../hooks/useCart";
 // Icons
 import { FaBeer, FaTrashAlt } from 'react-icons/fa';
+import Swal from "sweetalert2";
 
 
 const MyCart = () => {
-    const [cart] = useCart()
+    const [cart,refetch] = useCart()
     console.log(cart)
     // This is reduce function
     const total = cart.reduce((sum, item) => item.price + sum, 0)
+
+    const handleDlete = (item) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/carts/${item._id}`, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
+    }
     return (
-        <div>
+        <div className="w-full">
             <Helmet>
                 <title>Resturant | Mycart</title>
             </Helmet>
@@ -59,7 +89,7 @@ const MyCart = () => {
                                 </td>
                                 <td className="text-2xl text-end">${item.price}</td>
                                 <th>
-                                    <button className="btn btn-ghost btn-lg bg-red-500 text-white hover:bg-red-700 " >
+                                    <button onClick={() => handleDlete(item)} className="btn btn-ghost btn-lg bg-red-500 text-white hover:bg-red-700 " >
 
                                         <FaTrashAlt></FaTrashAlt>
                                     </button>

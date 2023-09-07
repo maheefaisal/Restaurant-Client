@@ -3,8 +3,10 @@ import { FaCalendarAlt, FaHome, FaShoppingCart, FaWallet } from "react-icons/fa"
 import { ImMenu } from "react-icons/im";
 import { RxCardStackPlus } from "react-icons/rx";
 import { Helmet } from "react-helmet-async";
+import useCart from "../hooks/useCart";
 
 const Dashboard = () => {
+    const [cart] = useCart()
     return (
         <>
 
@@ -21,7 +23,13 @@ const Dashboard = () => {
                         {/* Sidebar content here */}
                         <li ><NavLink to="/dashboard/home"><FaHome></FaHome> Home</NavLink></li>
                         <li><NavLink to="/dashboard/reservation"><FaCalendarAlt /> Reservations</NavLink></li>
-                        <li><NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart>My Cart</NavLink></li>
+                        <li >
+                            <NavLink to="/dashboard/mycart">
+                                <FaShoppingCart></FaShoppingCart>My Cart
+                                <span className="badge  badge-secondary">+{cart?.length || 0}</span>
+                            </NavLink>
+
+                        </li>
                         <li><NavLink to="/dashboard/history"><FaWallet></FaWallet>Payment History</NavLink></li>
                         <div className="divider"></div>
                         <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
