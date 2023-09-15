@@ -2,12 +2,13 @@ import { NavLink, Outlet } from "react-router-dom";
 import { FaBook, FaCalendarAlt, FaHome, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from "react-icons/fa"
 import { ImMenu } from "react-icons/im";
 import { RxCardStackPlus } from "react-icons/rx";
-import { Helmet } from "react-helmet-async";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
     const [cart] = useCart()
-    const isAdmin = true
+
+    const isAdmin = useAdmin()
 
     return (
         <>
