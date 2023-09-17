@@ -20,7 +20,7 @@ const auth = getAuth(app);
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider()
 
   // Create User
@@ -56,6 +56,7 @@ const AuthProvider = ({ children }) => {
           .then(data => {
             console.log(data)
             localStorage.setItem('access-token', data.data.token)
+            setLoading(false)
           })
 
 
@@ -75,6 +76,7 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     createUser,
+    loading,
     logIn,
     logOut,
     profile,
