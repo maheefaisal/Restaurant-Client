@@ -28,7 +28,7 @@ const Dashboard = () => {
                             isAdmin ? <>
                                 {/* Sidebar content here */}
                                 <li ><NavLink to="/dashboard/home"><FaHome></FaHome> Admin Home</NavLink></li>
-                                <li><NavLink to="/dashboard/reservation"><FaUtensils></FaUtensils> Add Items</NavLink></li>
+                                <li><NavLink to="/dashboard/addItem"><FaUtensils></FaUtensils> Add Items</NavLink></li>
 
                                 <li><NavLink to="/dashboard/history"><FaWallet></FaWallet>Manage Items</NavLink></li>
                                 <li><NavLink to="/dashboard/history"><FaBook /> Manage Bookings</NavLink></li>
