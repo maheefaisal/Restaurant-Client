@@ -6,7 +6,7 @@ const AddItem = () => {
 
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${image_hosting_token}`
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`
     const onSubmit = data => {
         const formData = new FormData()
         formData.append('image', data.image[0])
@@ -16,7 +16,12 @@ const AddItem = () => {
         })
             .then(res => res.json())
             .then(imgResponse => {
-                console.log(imgResponse)
+                if (imgResponse.success) {
+                    const imgURL = imgResponse.data.display_url
+                    const { name, price, category, recipe } = data
+                    const newItem = { name, price:parseFloat(price), category, recipe ,image:imgURL}
+                    console.log(newItem);
+                }
             })
     };
     console.log(errors);
