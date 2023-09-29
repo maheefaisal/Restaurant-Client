@@ -3,10 +3,11 @@ import useCart from "../../../hooks/useCart";
 // Icons
 import { FaBeer, FaTrashAlt } from 'react-icons/fa';
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const MyCart = () => {
-    const [cart,refetch] = useCart()
+    const [cart, refetch] = useCart()
     console.log(cart)
     // This is reduce function
     const total = cart.reduce((sum, item) => item.price + sum, 0)
@@ -51,7 +52,9 @@ const MyCart = () => {
                 <h2 className="text-xl">
                     Total Price: ${total}
                 </h2>
-                <button className="btn btn-warning bt-sm px-[20px]">pay</button>
+                <Link to={'/dashboard/payment'}>
+                    <button className="btn btn-warning bt-sm px-[20px]">pay</button>
+                </Link>
             </div>
             <div className="overflow-x-auto rounded-lg">
                 <table className="table ">
